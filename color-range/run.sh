@@ -31,13 +31,13 @@ build_report() {
   old_dir=$1
   new_dir=$2
   for bit in 8 10; do
-    echo '<div style="clear:both;">'
+    echo '<div style="clear:both; padding-top:30px">'
     echo " <h3>Bit depth ${bit}</h3>"
     for scale in _scaled _unscaled; do
-      echo '<div style="clear:both;">'
+      echo '<div style="clear:both; padding-top:10px;">'
       echo "<b>${scale}</b>";
       for i in ${old_dir}/*${bit}${scale}*.png; do
-        echo "<div style=\"clear:both; padding-top: 20px;\">"
+        echo "<div style=\"clear:both; padding-top: 10px;\">"
         composite $i ${i/old/new} -compose difference ${i/old/diff}
         mogrify  -level 0,10000,0.9 ${i/old/diff}
         name=$(basename $i)
