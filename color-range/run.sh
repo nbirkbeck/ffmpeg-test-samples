@@ -43,15 +43,15 @@ build_report() {
         name=$(basename $i)
         echo '<div style="float:left;">'
         echo " <p>Old (${name})</p>"
-        echo " <img src=\"$i\" width=\"600\" align=\"left\"></img>";
+        echo " <img src=\"${img_prefix}${i}\" width=\"600\" align=\"left\"></img>";
         echo '</div>'
         echo '<div style="float:left;">'
         echo " <p>Diff (old-new) ${name}</p>"
-        echo " <img src=\"${i/old/diff}\" width=\"600\" align=\"left\"></img>";
+        echo " <img src=\"${img_prefix}${i/old/diff}\" width=\"600\" align=\"left\"></img>";
         echo '</div>'
         echo '<div style="float:left;">'
         echo " <p>With patch (${name})</p>"
-        echo " <img src=\"${i/old/new}\" width=\"600\" align=\"left\"></img>";
+        echo " <img src=\"${img_prefix}${i/old/new}\" width=\"600\" align=\"left\"></img>";
         echo '</div>'
       done
       echo '</div>'
