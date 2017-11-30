@@ -1,5 +1,5 @@
 function gen_test_samples()
-for bit_depth=[8],
+for bit_depth=[8,10],
   mx = 2^bit_depth - 1;
   w = 32 * 16;
   mid = ones(32, w) * 2^(bit_depth-1);
@@ -19,7 +19,7 @@ for bit_depth=[8],
   suffix = ''
   pix_fmt = 'yuvj444p'
   if bit_depth ~= 8
-    suffix = '_10bit';  % Assumes you have a version of
+    suffix = '-10bit';  % Assumes you have a version of
                         % ffmpeg_10bit on your path compiled with
                         % 10-bit x264 encode capability.
     pix_fmt = sprintf('yuv444p%dle', bit_depth);
